@@ -1,0 +1,24 @@
+{
+    "Id": "SourceIP",
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "SourceIP",
+        "Action": "s3:*",
+        "Effect": "Deny",
+        "Resource": [
+          "arn:aws:s3:::the-bucket",
+          "arn:aws:s3:::the-bucket/*"
+        ],
+        "Condition": {
+          "NotIpAddress": {
+            "aws:SourceIp": [
+              "11.11.11.11/32",
+              "22.22.22.22/32"
+            ]
+          }
+        },
+        "Principal": "*"
+      }
+    ]
+  }
