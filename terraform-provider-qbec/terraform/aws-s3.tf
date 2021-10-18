@@ -11,11 +11,17 @@ provider "qbec" {}
 data "qbec_jsonnet_eval" "aws-s3-deny-non-corp-policy" {
   file = "${path.module}/../policy.jsonnet"
   data_sources = [
+    # Then datasource URI as required by qbec.
+    # The host my-corp-ip-api matches the importstr
+    # data path on the policy.jsonnet file
     "exec://my-corp-ip-api?configVar=corpIPsKey"
   ]
   ext_code_vars = {
+    # The key must be the same as configVar above
     corpIPsKey = jsonencode({
+      # path to the executable
       command : "${path.module}/../fetch-dynamic-corp-ips.sh",
+      # arguments to pass to the executable
       args : ["corpIPs"]
     })
   }
