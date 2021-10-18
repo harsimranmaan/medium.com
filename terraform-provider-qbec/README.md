@@ -1,0 +1,1 @@
+See [Extend terraform json/yaml templates with qbec and jsonnet](https://harsimranmaan.medium.com/extend-terraform-json-yaml-templates-with-qbec-and-jsonnet-aac372602a7d)
