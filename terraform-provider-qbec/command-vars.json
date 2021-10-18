@@ -1,0 +1,1 @@
+{ "command": "./fetch_dynamic-corp-ips.sh", "args": ["corpIPs"] }
